@@ -1,0 +1,36 @@
+import {Callout} from "nextra/components";
+
+# Expense schema
+Expenditure representing the value of a service consumed.
+
+## Used in
+- [Daily closing - `otherExpenses`](/schema-ntak/daily-closing#otherexpenses)
+- [Daily closing - `postStayExpenses`](/schema-ntak/daily-closing#poststayexpenses)
+- [Checkout-day transaction](/schema-ntak/segments/checkout-day-transaction#expenses)
+
+## Properties
+### `amount`
+- Type: `number`
+- Rules: `required`
+
+<Callout type="info">The amount must be converted to Hungarian Forint.</Callout>
+
+### `payment`
+- Type: `enum`
+- Rules: `required` | [`oneOf: Payment (enum)`](/schema-ntak/enums/payment)
+
+### `paymentSubtype`
+- Type: `enum` | `null` | `undefined`
+- Rules: [`oneOf: Payment subtype (enum)`](/schema-ntak/enums/payment-subtype)
+
+<Callout type="info">This value is only required when `payment` field value is `szép`.</Callout>
+
+## Object
+
+```ts
+export type Expense = {
+  amount: number;
+  payment: Payment;
+  paymentSubtype?: PaymentSubtype | null;
+};
+```

@@ -1,0 +1,40 @@
+# Checkout-day transaction schema
+
+## Used in
+- [Daily closing](/schema-ntak/daily-closing#checkoutdaytransactions)
+
+## Properties
+### `unit`
+- Type: [`Unit`](/schema-ntak/segments/unit)
+
+### `salesChannel`
+- Type: `enum`
+- Rules: `required` | [`oneOf: Sales channel (enum)`](/schema-ntak/enums/sales-channel)
+
+### `marketSegment`
+- Type: `enum`
+- Rules: `required` | [`oneOf: Market segment (enum)`](/schema-ntak/enums/market-segment)
+
+### `reservationNumber`
+- Type: `string` | `number`
+- Rules: `required`
+
+### `expenses`
+- Type: [`Expense[]`](/schema-ntak/segments/expense)
+- Rules: `required` | `min: 0`
+
+### `charges`
+- Type: [`Charge[]`](/schema-ntak/segments/charge)
+- Rules: `required` | `min: 0`
+
+## Object
+```ts
+export type CheckoutDayTransaction = {
+  unit: Unit;
+  salesChannel: SalesChannel;
+  marketSegment: MarketSegment;
+  reservationNumber: string | number;
+  expenses: Expense[];
+  charges: Charge[];
+};
+```

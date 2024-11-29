@@ -1,0 +1,52 @@
+# Guest schema
+Data type that holds anonymous information related to a guest.
+
+## Used in
+- [Checkin](/schema-ntak/checkin#guests)
+- [Checkout](/schema-ntak/checkout#guests)
+- [Room change](/schema-ntak/room-change#guests)
+- [Unit night](/schema-ntak/segments/unit-night#guests)
+
+## Properties
+### `guestId`
+The guest's unique identifier.
+- Type: `string` | `number`
+- Rules: `required`
+
+### `yearOfBirth`
+The guest's year of birth.
+- Type: `number`
+- Rules: `required` | `min: 1900` | `max: <current year>`
+
+### `nationality`
+The two-letter country code of the country where the guest is a citizen.
+- Type: `enum`
+- Rules: `required` | [`oneOf: Country (enum)`](/schema-ntak/enums/country)
+
+### `country`
+The two-letter country code of the country where the guest's residence is located.
+- Type: `enum`
+- Rules: `required` | [`oneOf: Country (enum)`](/schema-ntak/enums/country)
+
+### `postalCode`
+The postal code of the guest's residence.
+- Type: `string` | `number`
+- Rules: `required`
+
+### `touristTax`
+The guest's tourist tax (IFA) status.
+- Type: `enum`
+- Rules: `required` | [`oneOf: Tourist TAX (enum)`](/schema-ntak/enums/tourist-tax)
+
+## Object
+```ts
+export type Guest = {
+  guestId: string | number;
+  yearOfBirth: number;
+  gender: Gender;
+  nationality: Country;
+  country: Country;
+  postalCode: string | number;
+  touristTax: TouristTax;
+};
+```

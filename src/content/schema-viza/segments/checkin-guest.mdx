@@ -1,0 +1,54 @@
+import {Callout} from "nextra/components";
+
+# Checkin guest schema
+
+## Used in
+- [Checkin](/schema-viza/checkin#guests)
+
+## Properties
+### `guestId`
+A unique identifier indicating the arrival of a specific guest.
+The same value must be submitted for the guest's arrival and departure to ensure that the arrival and departure can be linked.
+- Type: `string`
+- Rules: `required` | `uuid`
+
+### `arrivedAt`
+The exact timestamp of check-in.
+- Type: `string`
+- Rules: `required` | `format: 'Y-m-d H:i:s' UTC`
+
+### `departure`
+The expected departure date based on the reservation.
+- Type: `string`
+- Rules: `required` | `format: 'Y-m-d'`
+
+### `manual`
+Manually recorded personal data.
+- Type: [`PersonalInformation`](/schema-viza/segments/personal-information)
+
+<Callout type="default">
+  Please read the [good to know](/schema-viza/segments/personal-information#good-to-know) section when and which properties are required.
+</Callout>
+
+### `scanned`
+Personal data scanned from an identification document.
+- Type: [`PersonalInformation`](/schema-viza/segments/personal-information)
+
+<Callout type="default">
+  Please read the [good to know](/schema-viza/segments/personal-information#good-to-know) section when and which properties are required.
+</Callout>
+
+### `visa`
+- Type: [`Visa`](/schema-viza/segments/visa) | `null`
+
+## Object
+```ts
+export type CheckinGuest = {
+  guestId: string;
+  arrivedAt: string;
+  departure: string;
+  manual: PersonalInformation;
+  scanned: PersonalInformation;
+  visa: Visa | null;
+};
+```

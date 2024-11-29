@@ -1,0 +1,17 @@
+# Payment subtype ENUM
+Expenditure subtypes based on the subcategories of the payment method.
+
+## Used in
+- [Expense](/schema-ntak/segments/expense#paymentsubtype)
+
+## Values
+| English       | Hungarian   |
+|:--------------|:------------|
+| hospitality   | VENDEGLATAS |
+| leisure       | SZABADIDO   |
+| accommodation | SZALLASHELY |
+
+## Object
+```ts
+export type PaymentSubtype = "hospitality" | "leisure" | "accommodation";
+```

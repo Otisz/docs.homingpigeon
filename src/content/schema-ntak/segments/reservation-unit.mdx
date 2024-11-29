@@ -1,0 +1,23 @@
+# Reservation unit schema
+
+## Used in
+- [Reservation](/schema-ntak/reservation)
+
+## Properties
+### `type`
+Type of the room, plot, etc...
+- Type: `enum`
+- Rules: `required` | [`oneOf: Unit type (enum)`](/schema-ntak/enums/unit-type)
+
+### `capacity`
+Capacity of the room, plot, etc...
+- Type: `number`
+- Rules: `required` | `min: 1`
+
+## Object
+```ts
+export type ReservationUnit = {
+  type: UnitType;
+  capacity: number;
+};
+```

@@ -1,0 +1,58 @@
+import {Callout} from "nextra/components";
+
+# Unit schema
+
+## Used in
+- [Checkin](/schema-ntak/checkin#occupiedunit)
+- [Checkout](/schema-ntak/checkout#vacatedunit)
+- [Room change - `vacatedUnit`](/schema-ntak/room-change#vacatedunit)
+- [Room change - `occupiedUnit`](/schema-ntak/room-change#occupiedunit)
+- [Daily closing](/schema-ntak/daily-closing#oosunits)
+- [Checkout-day transaction](/schema-ntak/segments/checkout-day-transaction#unit)
+- [Sold Unit](/schema-ntak/segments/sold-unit#unit)
+
+## Properties
+### `building`
+Name of the building.
+- Type: `string` | `number` | `null` | `undefined`
+
+<Callout type="info">If not present or `null`, the fallback value will be the letter "**a**".</Callout>
+
+### `number`
+Name of the room, plot, etc...
+- Type: `string` | `number`
+- Rules: `required`
+
+### `type`
+Type of the room, plot, etc...
+- Type: `enum`
+- Rules: `required` | [`oneOf: Unit type (enum)`](/schema-ntak/enums/unit-type)
+
+### `singleBeds`
+Number of single beds in the room.
+- Type: `number`
+- Rules: `required` | `min: 0`
+
+### `doubleBeds`
+Number of double beds in the room.
+- Type: `number`
+- Rules: `required` | `min: 0`
+
+### `extraBeds`
+Number of double beds in the room.
+- Type: `number` | `null` | `undefined`
+- Rules: `min: 0`
+
+<Callout type="info">If not present or zero, this value won't be included in the report.</Callout>
+
+## Object
+```ts
+export type Unit = {
+  building: string | number;
+  number: string | number;
+  type: UnitType;
+  singleBeds: number;
+  doubleBeds: number;
+  extraBeds: number;
+};
+```

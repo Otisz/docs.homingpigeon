@@ -1,0 +1,21 @@
+# Payment ENUM
+Expenditure types based on the payment method.
+
+## Used in
+- [Expense](/schema-ntak/segments/expense#payment)
+
+## Values
+| English   | Hungarian   |
+|:----------|:------------|
+| card      | BANKKARTYA  |
+| cash      | KESZPENZ    |
+| szép      | SZEP_KARTYA |
+| transfer  | ATUTALAS    |
+| voucher   | UTALVANY    |
+| pay later | UTOLAGOS    |
+| other     | EGYEB       |
+
+## Object
+```ts
+export type Payment = "card" | "cash" | "szép" | "transfer" | "voucher" | "pay later" | "other";
+```

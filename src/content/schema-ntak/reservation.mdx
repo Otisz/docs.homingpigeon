@@ -1,0 +1,64 @@
+# Reservation schema
+Reservation create, update, and cancel object.
+
+## Properties
+### `reservationNumber`
+- Type: `string` | `number`
+- Rules: `required`
+
+### `occurredAt`
+- Type: `string`
+- Rules: `required` | `format: 'Y-m-d H:i:s' UTC`
+
+### `cancelled`
+- Type: `boolean`
+- Rules: `required`
+
+### `nationality`
+- Type: `enum`
+- Rules: `required` | [`oneOf: Country ENUM`](/schema-ntak/enums/country)
+
+### `arrival`
+- Type: `string`
+- Rules: `required` | `format: 'Y-m-d'`
+
+### `departure`
+- Type: `string`
+- Rules: `required` | `format: 'Y-m-d'`
+
+### `reservedAt`
+- Type: `string`
+- Rules: `required` | `format: 'Y-m-d H:i:s' UTC`
+
+### `salesChannel`
+- Type: `enum`
+- Rules: `required` | [`oneOf: Sales channel (enum)`](/schema-ntak/enums/sales-channel)
+
+### `grossAmount`
+- Type: `number`
+- Rules: `required` | `min: 0`
+
+### `bookedUnits`
+- Type: [`Reservation unit[]`](/schema-ntak/segments/reservation-unit)
+- Rules: `required` | `min: 1`
+
+### `marketSegment`
+- Type: `enum`
+- Rules: `required` | [`oneOf: Market segment (enum)`](/schema-ntak/enums/market-segment)
+
+## Object
+```ts
+export type Reservation = {
+  reservationNumber: string | number;
+  occurredAt: string;
+  cancelled: boolean;
+  nationality: Country;
+  arrival: string;
+  departure: string;
+  reservedAt: string;
+  salesChannel: SalesChannel;
+  grossAmount: number;
+  bookedUnits: ReservationUnit[];
+  marketSegment: MarketSegment;
+};
+```

@@ -1,0 +1,28 @@
+# Checkout Schema
+Checkout report object
+
+## Properties
+### `occurredAt`
+- Type: `string`
+- Rules: `required` | `format: 'Y-m-d H:i:s' UTC`
+
+### `reservationNumber`
+- Type: `string` | `number`
+- Rules: `required`
+
+### `guests`
+- Type: [`Guest[]`](/schema-ntak/segments/guest)
+- Rules: `required` | `min: 1`
+
+### `vacatedUnit`
+- Type: [`Unit`](/schema-ntak/segments/unit)
+
+## Object
+```ts
+export type Checkout = {
+  occurredAt: string;
+  reservationNumber: string | number;
+  guests: Guest[];
+  vacatedUnit: Unit;
+};
+```

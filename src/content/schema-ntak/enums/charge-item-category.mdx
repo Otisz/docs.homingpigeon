@@ -1,0 +1,26 @@
+# Charge item category ENUM
+Charge item categories based on the types of services.
+
+## Used in
+- [Charge](/schema-ntak/segments/charge)
+
+## Values
+| English             | Hungarian         |
+|:--------------------|:------------------|
+| accommodation fee   | SZALLASDIJ        |
+| tourist tax         | IFA               |
+| food                | ETEL              |
+| beverage            | ITAL              |
+| health and wellness | GYOGY_ES_WELLNESS |
+| other               | EGYEB             |
+
+## Object
+```ts
+export type ChargeItemCategory =
+    | "accommodation fee"
+    | "tourist tax"
+    | "food"
+    | "beverage"
+    | "health and wellness"
+    | "other";
+```

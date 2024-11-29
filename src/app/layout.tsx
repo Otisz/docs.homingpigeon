@@ -35,7 +35,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           footer={<Footer />}
           editLink="Edit this page on GitHub"
           docsRepositoryBase="https://github.com/homingpigeonlabs/docs.homingpigeon"
-          sidebar={{ defaultMenuCollapseLevel: 2, autoCollapse: true }}
+          sidebar={{ defaultMenuCollapseLevel: 1 }}
           pageMap={await getPageMap()}
         >
           {children}

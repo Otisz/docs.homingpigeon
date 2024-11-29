@@ -1,0 +1,26 @@
+# Unit night schema
+
+## Used in
+- [Daily closing](/schema-ntak/daily-closing#unitnights)
+
+## Properties
+### `soldUnit`
+- Type: [`Sold unit`](/schema-ntak/segments/sold-unit)
+
+### `guests`
+- Type: [`Guest[]`](/schema-ntak/segments/guest)
+- Rules: `required` | `min: 1`
+
+### `isDayUse`
+- Type: `boolean`
+- Rules: `required`
+
+## Object
+
+```ts
+export type UnitNight = {
+  soldUnit: SoldUnit;
+  guests: Guest[];
+  isDayUse: boolean;
+};
+```
