@@ -1,0 +1,13 @@
+# Checkout report request
+
+## Properties
+### `events`
+- Type: [`Checkout[]`](/schemas/ntak/checkout)
+- Rules: `required` | `min: 1`
+
+## Object
+```ts
+export type requestBody = {
+  events: Checkout[];
+};
+```
