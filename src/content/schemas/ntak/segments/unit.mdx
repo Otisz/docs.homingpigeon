@@ -15,7 +15,6 @@ import {Callout} from "nextra/components";
 ### `building`
 Name of the building.
 - Type: `string` | `number` | `null` | `undefined`
-- Rules: `nullable`
 
 <Callout type="info">If not present or `null`, the fallback value will be the letter "**a**".</Callout>
 
@@ -42,7 +41,7 @@ Number of double beds in the room.
 ### `extraBeds`
 Number of double beds in the room.
 - Type: `number` | `null` | `undefined`
-- Rules: `nullable` | `min: 0`
+- Rules: `min: 0`
 
 <Callout type="info">If not present or zero, this value won't be included in the report.</Callout>
 

@@ -1,0 +1,18 @@
+# Checkout schema
+
+## Properties
+### `occurredAt`
+- Type: `string`
+- Rules: `required` | `format: 'Y-m-d H:i:s' UTC`
+
+### `guests`
+- Type: [`CheckoutGuest[]`](/schemas/viza/segments/checkout-guest)
+- Rules: `required` | `min: 1`
+
+## Object
+```ts
+export type Checkout = {
+  occurredAt: string;
+  guests: CheckoutGuest[];
+};
+```

@@ -1,0 +1,18 @@
+# Document Type ENUM
+The type of identification document presented by the guest at check-in.
+
+## Used in
+- [Personal information](/schemas/viza/segments/personal-information#documenttype)
+
+## Values
+| English         | Hungarian |
+|:----------------|:----------|
+| identity card   | SZEM_IG   |
+| passport        | UTLEVEL   |
+| driving license | VEZ_ENG   |
+| other           | EGYEB     |
+
+## Object
+```ts
+export type DocumentType = "identity card" | "passport" | "driving license" | "other";
+```
