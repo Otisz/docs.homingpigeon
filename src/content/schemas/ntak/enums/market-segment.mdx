@@ -1,0 +1,26 @@
+# Market segment ENUM
+Market segment categories.
+
+## Used in
+- [Reservation](/schemas/ntak/reservation#marketsegment)
+- [Checkout-day transaction](/schemas/ntak/segments/checkout-day-transaction#marketsegment)
+- [Sold unit](/schemas/ntak/segments/sold-unit#marketsegment)
+
+## Values
+| English             | Hungarian            |
+|:--------------------|:---------------------|
+| leisure individual  | SZABADIDOS_EGYENI    |
+| leisure group       | SZABADIDOS_CSOPORTOS |
+| business individual | UZLETI_EGYENI        |
+| business group      | UZLETI_CSOPORTOS     |
+| other               | ISMERETLEN           |
+
+## Object
+```ts
+  export type NtakMarketSegment =
+    | "leisure individual"
+    | "leisure group"
+    | "business individual"
+    | "business group"
+    | "other";
+```

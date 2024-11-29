@@ -1,0 +1,45 @@
+# Unit type ENUM
+Types of accommodation units.
+
+## Used in
+- [Unit](/schemas/ntak/segments/unit#type)
+- [Reservation unit](/schemas/ntak/segments/reservation-unit#type)
+
+## Values
+| English                         | Hungarian                   |
+|:--------------------------------|:----------------------------|
+| apartment                       | APARTMAN                    |
+| custom                          | EGYEDI                      |
+| dormitory bed                   | HALOTERMI_AGY               |
+| economy                         | ECONOMY                     |
+| holiday home                    | UDULOHAZ                    |
+| junior suite                    | JUNIOR_SUITE                |
+| mobile home                     | MOBILHAZ                    |
+| parcel                          | PARCELLA                    |
+| en-suit room                    | PRIVAT_SZOBA_SAJAT_FURDOVEL |
+| private room with communal bath | PRIVAT_SZOBA_KOZOS_FURDOVEL |
+| standard                        | STANDARD                    |
+| suite                           | SUITE                       |
+| superior                        | SUPERIOR                    |
+| camping pitch                   | SATORHELY_KEMPINGHELY       |
+| other                           | EGYEB                       |
+
+## Object
+```ts
+export type UnitType =
+  | "apartment"
+  | "custom"
+  | "dormitory bed"
+  | "economy"
+  | "holiday home"
+  | "junior suite"
+  | "mobile home"
+  | "parcel"
+  | "en-suit room"
+  | "private room with communal bath"
+  | "standard"
+  | "suite"
+  | "superior"
+  | "camping pitch"
+  | "other";
+```

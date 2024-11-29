@@ -1,0 +1,20 @@
+# Sales channel ENUM
+Grouping of accommodation unit nights by sales channel.
+
+## Used in
+- [Reservation](/schemas/ntak/reservation#saleschannel)
+- [Checkout-day transaction](/schemas/ntak/segments/checkout-day-transaction#saleschannel)
+- [Sold unit](/schemas/ntak/segments/sold-unit#saleschannel)
+
+## Values
+| English            | Hungarian             |
+|:-------------------|:----------------------|
+| direct online      | DIREKT_ONLINE         |
+| direct traditional | DIREKT_HAGYOMANYOS    |
+| agency online      | KOZVETITO_ONLINE      |
+| agency traditional | KOZVETITO_HAGYOMANYOS |
+
+## Object
+```ts
+export type SalesChannel = "direct online" | "direct traditional" | "agency online" | "agency traditional";
+```

@@ -1,0 +1,32 @@
+# Sold unit schema
+
+## Used in
+- [Unit night](/schemas/ntak/segments/unit-night#soldunits)
+
+## Properties
+### `unit`
+- Type: [`Unit`](/schemas/ntak/segments/unit)
+
+### `salesChannel`
+- Type: `enum`
+- Rules: `required` | [`oneOf: Sales channel (enum)`](/schemas/ntak/enums/sales-channel)
+
+### `marketSegment`
+- Type: `enum`
+- Rules: `required` | [`oneOf: Market segment (enum)`](/schemas/ntak/enums/market-segment)
+
+### `reservationNumber`
+- Type: `string` | `number`
+- Rules: `required`
+
+## Object
+```ts
+export type SoldUnit = {
+  unit: Unit;
+  salesChannel: SalesChannel;
+  marketSegment: MarketSegment;
+  reservationNumber: string | number;
+  expenses: Expense[];
+  charges: Charge[];
+};
+```

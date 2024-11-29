@@ -1,0 +1,42 @@
+# Availability schema
+Summary of accommodation room data for the closed day.
+
+## Used in
+- [Daily closing](/schemas/ntak/daily-closing#availability)
+
+## Properties
+### `all`
+Total rooms.
+- Type: `number`
+- Rules: `required` | `min: 1` | `max: 1000`
+
+### `ooo`
+Number of out-of-order rooms.
+- Type: `number`
+- Rules: `required` | `min: 0` | `max: 1000`
+
+### `oos`
+Number of out-of-service rooms.
+- Type: `number`
+- Rules: `required` | `min: 0` | `max: 1000`
+
+### `occupied`
+Number of occupied rooms.
+- Type: `number`
+- Rules: `required` | `min: 0` | `max: 1000`
+
+### `available`
+Number of available rooms.
+- Type: `number`
+- Rules: `required` | `min: 0` | `max: 1000`
+
+## Object
+```ts
+export type Availability = {
+  all: number;
+  ooo: number;
+  oos: number;
+  occupied: number;
+  available: number;
+};
+```

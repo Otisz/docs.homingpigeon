@@ -1,7 +1,23 @@
 import type { NextConfig } from "next";
+import nextra from "nextra";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
-export default nextConfig;
+const withNextra = nextra({
+  latex: true,
+  search: {
+    codeblocks: false,
+  },
+  contentDirBasePath: "/",
+  defaultShowCopyCode: true,
+});
+
+export default withNextra(nextConfig);

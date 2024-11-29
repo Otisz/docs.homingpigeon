@@ -1,0 +1,8 @@
+table {
+    display: table !important;
+    width: 100%;
+}
+
+code {
+    white-space: pre !important;
+}

@@ -23,6 +23,8 @@
     "eslint": "^9.15.0",
     "eslint-config-next": "15.0.3",
     "eslint-plugin-import": "^2.31.0",
+    "nextra": "4.0.0-app-router.31",
+    "nextra-theme-docs": "4.0.0-app-router.31",
     "prettier": "^3.4.1",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5"

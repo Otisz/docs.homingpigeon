@@ -1,0 +1,86 @@
+import {Callout} from "nextra/components";
+
+# Daily closing schema
+A data type representing the consumption data of accommodation for a specific day.
+
+After data upload, the daily consumption data of the accommodation cannot be modified.
+
+## Properties
+### `closedDay`
+The date of the closed consumption day.
+- Type: `string`
+- Rules: `required` | `format: 'Y-m-d'`
+
+### `closedAt`
+The timestamp of the closure of the consumption day.
+- Type: `string`
+- Rules: `required` | `format: 'Y-m-d H:i:s' UTC`
+
+### `availability`
+The aggregated room data of the accommodation for the closed day.
+- Type: [`Availability`](/schemas/ntak/segments/availability)
+
+### `notOperating`
+The value of the element should be true if the accommodation was not operating on the day specified in the `closedDay` property.
+- Type: `boolean`
+- Rules: `required`
+
+### `unitNights`
+The daily consumption data broken down by accommodation unit.
+- Type: [`Unit night[]`](/schemas/ntak/segments/unit-night)
+- Rules: `required if: notOperating===false` | `min: 0`
+
+### `oosUnits`
+Data of out-of-service accommodation units.
+- Type: [`Unit[]`](/schemas/ntak/segments/unit)
+- Rules: `required if: notOperating===false` | `min: 0`
+
+### `checkoutDayTransactions`
+Charges and revenues generated on the checkout day, associated with accommodation units.
+- Type: [`Checkout-day transaction[]`](/schemas/ntak/segments/checkout-day-transaction)
+- Rules: `required if: notOperating===false` | `min: 0`
+
+### `otherCharges`
+Other charges not associated with accommodation units.
+- Type: [`Charge[]`](/schemas/ntak/segments/charge)
+- Rules: `required if: notOperating===false` | `min: 0`
+
+<Callout type="info">This is the only place, where `charge.isTouristTax` can be `null`, because it will be ignored anyway.</Callout>
+
+### `otherExpenses`
+Other expenses not associated with accommodation units.
+- Type: [`Expense[]`](/schemas/ntak/segments/expense)
+- Rules: `required if: notOperating===false` | `min: 0`
+
+### `postStayCharges`
+Charges incurred after the stay.
+- Type: [`Charge[]`](/schemas/ntak/segments/charge)
+- Rules: `required if: notOperating===false` | `min: 0`
+
+### `postStayExpenses`
+Expenses incurred after the stay.
+- Type: [`Expense[]`](/schemas/ntak/segments/expense)
+- Rules: `required if: notOperating===false` | `min: 0`
+
+## Object
+```ts
+export type DailyClosing = {
+  closedDay: string;
+  closedAt: string;
+  availability: Availability;
+} & (
+  | {
+      notOperating: true;
+    }
+  | {
+      notOperating: false;
+      unitNights: UnitNight[];
+      oosUnits: Unit[];
+      checkoutDayTransactions: CheckoutDayTransaction[];
+      otherCharges: Charge[];
+      otherExpenses: Expense[];
+      postStayCharges: Charge[];
+      postStayExpenses: Expense[];
+    }
+);
+```

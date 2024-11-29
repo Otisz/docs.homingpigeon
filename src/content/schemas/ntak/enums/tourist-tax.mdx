@@ -1,0 +1,38 @@
+# Tourist TAX ENUM
+Types of reasons for tourist tax liability and exemption.
+
+## Used in
+- [Guest](/schemas/ntak/segments/guest#touristtax)
+
+## Values
+| English | Hungarian |
+|:--------|:----------|
+| im1     | IM1       |
+| im2     | IM2       |
+| im3     | IM3       |
+| im4     | IM4       |
+| im5     | IM5       |
+| im6     | IM6       |
+| im7     | IM7       |
+| im8     | IM8       |
+| im9     | IM9       |
+| im10    | IM10      |
+| im11    | IM11      |
+| obliged | KOTELES   |
+
+## Object
+```ts
+export type TouristTax =
+  | "im1"
+  | "im2"
+  | "im3"
+  | "im4"
+  | "im5"
+  | "im6"
+  | "im7"
+  | "im8"
+  | "im9"
+  | "im10"
+  | "im11"
+  | "obliged";
+```
